@@ -1,10 +1,4 @@
-//
-//  DataRequest.swift
-//  UberX
-//
-//  Created by Dhaval Patel on 08/03/18.
-//  Copyright © 2018 Dhaval Patel. All rights reserved.
-//
+
 
 import Foundation
 enum Response {
