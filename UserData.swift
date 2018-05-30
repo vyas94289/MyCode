@@ -1,10 +1,4 @@
-//
-//  UserData.swift
-//  Ethnoshop
-//
-//  Created by Dhaval Patel on 16/04/18.
-//  Copyright © 2018 Dhaval Patel. All rights reserved.
-//
+
 
 import Foundation
 import UIKit
