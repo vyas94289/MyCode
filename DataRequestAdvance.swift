@@ -26,7 +26,7 @@ enum HTTPMethods:String{
 
 class DataRequest {
     
-    static func request<T:Codable>(_: T.Type,url:String,
+    static func request<T:Codable>(url:String,
                                    method:HTTPMethods = .get,
                                    param:[String:Any]? = nil,
                                    completion:@escaping (Response<T>)->Void){
@@ -83,24 +83,16 @@ class DataRequest {
 }
 
 //=================
- private func getCategories(){     
-        DataRequest.request([CategoryInfo].self, url: URLs.categories,
-                            method:HTTPMethods.post,
-                            param:nil)
-        { (response) in
+ private func getCategories(){ 
+     DataRequest.request(url: "") { (response:Response<CategoryInfo>) in
             switch response{
-            case .errorResponse(let error):
-                print("ErrorResponse - ",error ?? "Nil")
-                break
-            case .success(_,let model):
-                dump(model)
-                if let array = model{
-                    self.categoriesVC.categories = array
-                }
+            case .success(let data,let model):
                 break
             case .failure(let error, let message):
-                print("Failure - ",error,message)
+                break
+            case .errorResponse(let error):
                 break
             }
         }
-    }
+       
+  }
