@@ -152,3 +152,11 @@
         
         return body as Data
     }
+//MARK: - URLSession delegate
+extension ProfileVC:URLSessionDelegate,URLSessionTaskDelegate{
+    func urlSession(_ session: URLSession, task: URLSessionTask, didSendBodyData bytesSent: Int64, totalBytesSent: Int64, totalBytesExpectedToSend: Int64) {
+        let uploadProgress:Float = Float(totalBytesSent) / Float(totalBytesExpectedToSend)
+        let percent = Int(uploadProgress*100)
+        ProgressView.shared.text = "Updating... \(percent)%"
+    }
+}
