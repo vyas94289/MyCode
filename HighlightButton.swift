@@ -42,3 +42,22 @@ class HighlightButton: UIButton {
     }
     
 }
+
+@IBDesignable
+class Button: UIButton {
+    @IBInspectable var mainColor:UIColor? = UIColor.blue{
+        didSet{
+            let flag = isHighlighted
+            isHighlighted = flag
+        }
+    }
+    override func draw(_ rect: CGRect) {
+            self.clipsToBounds = true
+            self.layer.cornerRadius = rect.height / 2
+    }
+    override var isHighlighted: Bool{
+        didSet{
+            self.backgroundColor = isHighlighted ? mainColor?.withAlphaComponent(0.6) : mainColor
+        }
+    }
+}
