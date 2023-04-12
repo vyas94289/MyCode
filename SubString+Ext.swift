@@ -38,3 +38,7 @@ extension String {
         return self[startIndex..<end]
     }
 }
+
+// Usage:
+let subscript1 = "Hello, world!"[7...]
+let subscript2 = "Hello, world!"[7...11]
